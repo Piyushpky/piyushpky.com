@@ -7,12 +7,12 @@ import (
 	"strconv"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func Handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello from Vercel Go Server!")
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", Handler)
 
 	// Get port from environment, default to 8080
 	portStr := os.Getenv("PORT")
