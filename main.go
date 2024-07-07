@@ -5,17 +5,12 @@ import (
 	"net/http"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World!")
-}
-
-func hHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World! first page")
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello from Vercel Go Server!")
 }
 
 func main() {
-	http.HandleFunc("/api", helloHandler)
-	http.HandleFunc("/", hHandler)
-	fmt.Println("Server running at http://localhost:8080")
+	http.HandleFunc("/", handler)
+	fmt.Println("Server listening on port 8080...")
 	http.ListenAndServe(":8080", nil)
 }
