@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/piyushpky/piyushpky.com/api"
 	"net/http"
 	"os" // Import the os package
 	"strconv"
 )
 
 func main() {
-	http.HandleFunc("/", api.Handler)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello from your Go server!")
+	})
 
 	// Get port from environment, default to 8080
 	portStr := os.Getenv("PORT")
